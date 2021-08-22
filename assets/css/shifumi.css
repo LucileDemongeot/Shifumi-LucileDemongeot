@@ -1,0 +1,238 @@
+    @import url('https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap');
+    @keyframes clouds{to{transform: translateX(100%); } }
+
+/*MAIN CONTAINERS STYLE*/
+    body{font-family: 'ZCOOL XiaoWei', serif;}
+
+    main>*{padding: 0; }
+
+    main>div, main>div>div{height: 100vh; }
+        
+/*COMMON STYLES*/
+    .flex-center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bg-whiteTrans{background-color: rgba(255,255,255,0.6); }
+
+/*BACKGROUND & MAIN DECORATION*/
+    /*background*/
+    #cloudBackground{
+        position: absolute;
+        top: 0;
+        z-index: -3;
+        width: 100%;
+        height: 100vh;
+        background-repeat: no-repeat;
+    }
+
+    /*moving clouds animation*/
+    #cloudsContainer{
+        display: flex;
+        width: 100%;
+        height: 200vh;
+        min-height: 100%;
+
+        overflow: hidden;
+        z-index: -1;
+    }
+
+        #cloudsContainer div{
+            animation: clouds linear infinite;
+            /*animation-play-state: paused;*/
+        }
+
+        #cloudsContainer>div>img{width: 170px; }
+        
+        /*moving clouds individual behavior*/
+        #cloudsContainer div:nth-child(1){animation-delay: 0s; animation-duration: 150s; }
+        #cloudsContainer div:nth-child(2){animation-delay: -40s; animation-duration: 155s; }
+        #cloudsContainer div:nth-child(3){animation-delay: -15s; animation-duration: 160s; }
+        #cloudsContainer div:nth-child(4){animation-delay: -50s; animation-duration: 155s; }
+
+        /*chinese lamp*/
+        .lampContainer{
+            top: 0;
+            z-index: -2;
+            position: absolute;
+        }
+
+/*PART OF THE INTRODUCTION – left side*/
+    /*sun decoration*/
+    #sunSvg{width:100px }
+
+    h1{
+        color: #fff;
+        font-size: 4em;
+    }
+
+/*PART OF THE GAME – right side*/
+    /*scores*/
+    #scoreContainers{
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: 'user . . robot';
+    }
+
+        #userScore{grid-area: user; }
+        #robotScore{grid-area: robot; }
+
+        #scoreContainers>div>span{height: 100%}
+
+    /*choices*/
+    li{list-style: none; }
+
+    label{
+        background-color: #02373a !important;
+        color: #fff !important;
+
+        text-align: center;
+        cursor: pointer;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        border-radius: .25rem;
+    }
+
+        label.rock{background-color: #727b95 !important; /*rock*/ }
+        label.leaf{background-color: #537938 !important; /*leaf*/ }
+        label.scissors{background-color: #aaa999 !important; /*scissors*/ }
+
+    /*reduce the width of radios buttons*/
+    .choice{width: 0; }
+
+    /*robot choice*/
+    :root{--imgContSize : 70px; }
+    #robotChoiceImg img{
+        width: var(--imgContSize);
+        height: var(--imgContSize);
+    }
+
+        #robotChoiceImg{
+            height: calc(var(--imgContSize) + 2em);
+        }
+
+
+
+/*TOGGLE BTN : REMOVE/RE-ESTABLISH MOVING CLOUDS*/
+    #slidingContainer{
+        width: 60px; height: 30px;
+        cursor: pointer;
+        bottom: 0;
+        right: 0;
+    }
+
+        #slidingBtn{
+            width: 60px; height: 30px;
+            background-color: #d0d3dc;
+        }
+
+        #slidingImg{
+            width: 28px;
+            transform: translate(118%);
+            transition: transform 0.5s; 
+        }
+
+            #slidingFill{
+                width: 55px; height: 25px;
+                cursor: pointer;    
+                
+                transform: translate(0%); 
+                background-color: #d0d3dc;
+                transition: 1s background-color;
+            }
+
+        /*when clouds are off*/
+        .slidingFillOff{background-color: #949bae !important; }
+        .slidingImgOff{transform: translate(-10%) !important; }
+
+/*/////////////////////////////////////////////////// MEDIA /////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////// MEDIA /////////////////////////////////////////////////////*/
+
+/*/////// 0 //////// 0 //////// 0 //////// 0 /////// 0 //////// 0 //////// 0 //////// 0 //////// 0 //////*/
+    @media (min-width: 0px){
+        main>div, main>div>div{min-height: 450px; }
+
+        main>div:nth-child(1){margin-bottom: 50px !important;} /*need a space on small screen*/   
+       
+        #cloudBackground{
+            background-size: cover;
+            background-position: top 7% left 0;
+            background-image: url(../img/cloudBackMobil.svg); 
+        }
+
+        .lampContainer{display: none; }
+
+        /*set spacing on the first and last elements bc parent is 'space-between'*/
+        #cloudsContainer div:nth-child(1){margin-top: 2em !important;}
+        #cloudsContainer div:nth-child(4){margin-bottom: 2em !important;}
+        
+    }
+
+/*////// 300 ////// 300 ////// 300 ////// 300 ///// 300 ////// 300 ////// 300 ////// 300 ////// 300 /////*/
+    @media (min-width: 300px){
+        main>div, main>div>div{min-height: 510px; }
+
+        main>div:nth-child(1){margin-bottom: 0px !important;} /*do not need a space anymore*/   
+
+        #titleContainer{margin-bottom: 0 !important;}    
+    }
+
+/*////// 400 ////// 400 ////// 400 ////// 400 ///// 400 ////// 400 ////// 400 ////// 400 ////// 400 /////*/
+    @media (min-width: 400px){
+        main>div, main>div>div{min-height: 450px; }
+
+        .lampContainer{
+            display: block;
+            left: 70%;
+            width: 20%; 
+        }
+    }
+
+    @media (min-width: 400px) and (orientation: landscape) {
+        main>div, main>div>div{min-height: 345px; }
+    }
+
+/*////// 768 ////// 768 ////// 768 ////// 768 ///// 768 ////// 768 ////// 768 ////// 768 ////// 768 /////*/
+    @media (min-width: 768px){
+        .lampContainer{
+            left: 75%;
+            width: 150px; 
+        }
+
+        /*re-establish spaces*/
+        #cloudsContainer div:nth-child(1){margin-top: 0 !important;}
+        #cloudsContainer div:nth-child(4){margin-bottom: 0 !important;}
+    }
+
+/*////// 992 ////// 992 ////// 992 ////// 992 ///// 992 ////// 992 ////// 992 ////// 992 ////// 992 /////*/
+    @media (min-width: 992px){
+        html{overflow: hidden; }
+        main{height: 100vh; }
+
+        #cloudsContainer{height: 100%; }
+        #cloudsContainer div{transform: translateX(-11%);} /*to hide element before html*/
+        #cloudsContainer div:nth-child(2){margin-bottom: 15rem;} /*or it interferes with the reading of the robot's choice*/
+        #cloudsContainer div:nth-child(3){visibility: hidden;} /*or to much elements*/
+
+        #cloudBackground{
+            background-size: inherit;
+            background-image: url(../img/cloudBack.svg); 
+        }
+
+        .lampContainer{
+            left: 35%;
+            width: 140px; 
+        }
+    }
+
+/*////// 1100 ////// 1100 ////// 1100 ////// 1100 ///// 1100 ////// 1100 ////// 1100 ////// 1100 ////// 1100 /////*/
+    @media (min-width: 1200px){
+        .lampContainer{
+            left: 85%;
+            width: 150px; 
+        }
+    }
+
+/*/////////////////////////////////////////////////// END MEDIA /////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////// END MEDIA /////////////////////////////////////////////////////*/

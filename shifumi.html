@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/css/shifumi.css">
+	<title>Shifumi</title>
+</head>
+
+<body class="m-0 position-relative">
+
+<!-- MAIN -->
+<main class='row m-0 flex-center'>
+
+	<!-- INTRO CONTAINER -->
+	<div class="col-12 col-lg-5 col-xl-3 m-0 p-0">
+		<!-- CHINESE LAMPS -->
+		<img src="assets/img/lamp.svg" alt="Lanterne asiatique rouges et dorées" class="lampContainer">
+
+		<!-- GREEN BACKDROUND -->
+		<div id="cloudBackground" class=""></div>
+
+		<!-- TITLE -->
+		<div id="titleContainer" class="flex-center flex-column">
+			<!-- sun image -->
+			<img id="sunSvg" src="assets/img/sun.svg" alt="Illustration soleil doré et nuages asiatiques rouges">
+			<!-- shifumi title -->
+			<h1 class="d-inline-flex flex-column align-items-center"><span>SHI</span><span>FU</span><span>MI</span></h1>
+		</div>
+	</div>
+
+	<!-- GAME CONTAINER -->
+	<div class="col-12 col-lg-7 col-xl-9 position-relative">
+
+		<!-- ITEMS, SCORES & RESULT CONTAINERS -->
+		<div id="shifumi" class="flex-center flex-column position-relative">
+			<!-- SCORES -->
+			<div id="scoreContainers" class="d-grid">
+				<!-- user score -->
+				<div id="userScore" class="flex-center flex-column">
+					<span class="text-center flex-center bg-whiteTrans rounded px-1">Votre score</span>
+					<span id="userSpanVictories" class="fs-1 flex-center">0</span>
+				</div>
+
+				<!-- robot score -->
+				<div id="robotScore" class="d-flex flex-column">
+					<span class="text-center bg-whiteTrans rounded px-1">Score de la machine</span>
+					<span id="robotSpanVictories" class="fs-1 flex-center">0</span>
+				</div>
+			</div>
+
+			<!-- robot 'choice' -->
+			<div class="m-0 flex-center flex-column">
+				<h3 class=" bg-whiteTrans rounded px-1">Le robot a joué :</h3>
+				<div id="robotChoiceImg" class="flex-center"></div>
+			</div>
+
+			<!-- wi or lose -->
+			<h4 class="m-0"></h4>
+
+			<!-- BUTTONS TO CHOOSE -->
+			<ul class="flex-center flex-wrap shifumiItems p-0">
+				<li class="w-100 text-center mt-5 mb-3 mt-md-5  bg-whiteTrans rounded px-1">Qu'allez-vous jouer ?</li>
+				<li class="">
+					<label for="0" class="">Pierre</label>
+					<input id="0" type="radio" name="shifumi" class="invisible choice">
+				</li>
+				<li class="mx-4 mx-md-5">
+					<label for="1" class="">Feuille</label>
+					<input id="1" type="radio" name="shifumi" class="invisible choice">
+				</li>
+				<li class="">
+					<label for="2" class="">Ciseaux</label>
+					<input id="2" type="radio" name="shifumi" class="invisible choice">
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- MOVING CLOUDS -->
+	<section id="cloudsContainer" class="flex-column justify-content-between justify-content-md-evenly position-absolute">
+		<div><img src="assets/img/cloudSmallest.svg" alt="Nuages asiatiques rouges et dorés"></div>
+		<div><img src="assets/img/cloudBiggest.svg" alt="Nuages asiatiques rouges et dorés"></div>
+		<div><img src="assets/img/cloudBigger.svg" alt="Nuages asiatiques rouges et dorés"></div>
+		<div><img src="assets/img/cloudMedium.svg" alt="Nuages asiatiques rouges et dorés"></div>
+	</section>
+
+	<span id="slidingContainer" class="d-flex justify-content-start align-items-end position-absolute m-3 p-0">
+		<span id="slidingBtn" class="flex-center position-absolute rounded-pill">
+			<span id="slidingFill" class="flex-center position-absolute rounded-pill"></span>
+		</span>
+		<img id="slidingImg" src="assets/img/sliding.svg" alt="Nuages asiatiques rouges et dorés" class="position-absolute">
+	</span>
+</main>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="assets/js/shi.js"></script>
+</body>
+</html>
