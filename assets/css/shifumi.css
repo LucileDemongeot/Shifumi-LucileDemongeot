@@ -6,7 +6,7 @@
 
     main>*{padding: 0; }
 
-    main>div, main>div>div{height: 100vh; }
+    main>div, main>div>div{height: 95vh; }
         
 /*COMMON STYLES*/
     .flex-center{
@@ -32,7 +32,7 @@
     #cloudsContainer{
         display: flex;
         width: 100%;
-        height: 200vh;
+        /*height: 200vh;*/
         min-height: 100%;
 
         overflow: hidden;
@@ -47,10 +47,11 @@
         #cloudsContainer>div>img{width: 170px; }
         
         /*moving clouds individual behavior*/
-        #cloudsContainer div:nth-child(1){animation-delay: 0s; animation-duration: 150s; }
+        #cloudsContainer div:first-child{animation-delay: 0s; animation-duration: 150s; }
         #cloudsContainer div:nth-child(2){animation-delay: -40s; animation-duration: 155s; }
         #cloudsContainer div:nth-child(3){animation-delay: -15s; animation-duration: 160s; }
-        #cloudsContainer div:nth-child(4){animation-delay: -50s; animation-duration: 155s; }
+        #cloudsContainer div:nth-child(4){animation-delay: -15s; animation-duration: 160s; }
+        #cloudsContainer div:last-child{animation-delay: -50s; animation-duration: 155s; }
 
         /*chinese lamp*/
         .lampContainer{
@@ -146,12 +147,20 @@
         .slidingFillOff{background-color: #949bae !important; }
         .slidingImgOff{transform: translate(-10%) !important; }
 
+        footer{
+            height: 70px;
+            bottom: 0;
+        }
+
 /*/////////////////////////////////////////////////// MEDIA /////////////////////////////////////////////////////*/
 /*/////////////////////////////////////////////////// MEDIA /////////////////////////////////////////////////////*/
 
 /*/////// 0 //////// 0 //////// 0 //////// 0 /////// 0 //////// 0 //////// 0 //////// 0 //////// 0 //////*/
     @media (min-width: 0px){
-        main>div, main>div>div{min-height: 450px; }
+        main>div, main>div>div{
+            min-height: 450px;
+            max-height: 550px;
+        }
 
         main>div:nth-child(1){margin-bottom: 50px !important;} /*need a space on small screen*/   
        
@@ -164,14 +173,17 @@
         .lampContainer{display: none; }
 
         /*set spacing on the first and last elements bc parent is 'space-between'*/
-        #cloudsContainer div:nth-child(1){margin-top: 2em !important;}
-        #cloudsContainer div:nth-child(4){margin-bottom: 2em !important;}
+        /*#cloudsContainer div:first-child{margin-top: 2em !important;}*/
+        /*#cloudsContainer div:last-child{margin-bottom: 2em !important;}*/
         
     }
 
 /*////// 300 ////// 300 ////// 300 ////// 300 ///// 300 ////// 300 ////// 300 ////// 300 ////// 300 /////*/
     @media (min-width: 300px){
-        main>div, main>div>div{min-height: 510px; }
+        main>div, main>div>div{
+            min-height: 510px; 
+            max-height: 600px;
+    }
 
         main>div:nth-child(1){margin-bottom: 0px !important;} /*do not need a space anymore*/   
 
@@ -180,7 +192,10 @@
 
 /*////// 400 ////// 400 ////// 400 ////// 400 ///// 400 ////// 400 ////// 400 ////// 400 ////// 400 /////*/
     @media (min-width: 400px){
-        main>div, main>div>div{min-height: 450px; }
+        main>div, main>div>div{
+            min-height: 450px;
+            max-height: 740px;
+        }
 
         .lampContainer{
             display: block;
@@ -193,8 +208,20 @@
         main>div, main>div>div{min-height: 345px; }
     }
 
+/*////// 576 ////// 576 ////// 576 ////// 576 ///// 576 ////// 576 ////// 576 ////// 576 ////// 576 /////*/
+    @media (min-width: 576px){
+        main>div, main>div>div{
+            max-height: inherit;
+        }
+
+    }
+
 /*////// 768 ////// 768 ////// 768 ////// 768 ///// 768 ////// 768 ////// 768 ////// 768 ////// 768 /////*/
     @media (min-width: 768px){
+        main>div, main>div>div{
+            max-height: inherit;
+        }
+
         .lampContainer{
             left: 75%;
             width: 150px; 
