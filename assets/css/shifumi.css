@@ -6,7 +6,7 @@
 
     main>*{padding: 0; }
 
-    main>div, main>div>div{height: 95vh; }
+    main>div, main>div>div{height: 100vh; }
         
 /*COMMON STYLES*/
     .flex-center{
@@ -158,8 +158,8 @@
 /*/////// 0 //////// 0 //////// 0 //////// 0 /////// 0 //////// 0 //////// 0 //////// 0 //////// 0 //////*/
     @media (min-width: 0px){
         main>div, main>div>div{
-            min-height: 450px;
-            max-height: 550px;
+            min-height: 85vh;
+            max-height: 480px;
         }
 
         main>div:nth-child(1){margin-bottom: 50px !important;} /*need a space on small screen*/   
@@ -181,7 +181,7 @@
 /*////// 300 ////// 300 ////// 300 ////// 300 ///// 300 ////// 300 ////// 300 ////// 300 ////// 300 /////*/
     @media (min-width: 300px){
         main>div, main>div>div{
-            min-height: 510px; 
+            min-height: 85vh; 
             max-height: 600px;
     }
 
@@ -193,7 +193,7 @@
 /*////// 400 ////// 400 ////// 400 ////// 400 ///// 400 ////// 400 ////// 400 ////// 400 ////// 400 /////*/
     @media (min-width: 400px){
         main>div, main>div>div{
-            min-height: 450px;
+            min-height: 85vh;
             max-height: 740px;
         }
 
@@ -210,9 +210,6 @@
 
 /*////// 576 ////// 576 ////// 576 ////// 576 ///// 576 ////// 576 ////// 576 ////// 576 ////// 576 /////*/
     @media (min-width: 576px){
-        main>div, main>div>div{
-            max-height: inherit;
-        }
 
     }
 
@@ -236,6 +233,10 @@
     @media (min-width: 992px){
         html{overflow: hidden; }
         main{height: 100vh; }
+        
+        main>div, main>div>div{
+            max-height: inherit;
+        }
 
         #cloudsContainer{height: 100%; }
         #cloudsContainer div{transform: translateX(-11%);} /*to hide element before html*/
