@@ -26,7 +26,8 @@
 			$('label').each((keyLabel, itemLabel) => {$(itemLabel).removeClass()})
 
 		// STORAGE
-			// when the user click on input : store his response & the machine get a random Choice
+			/*when the user click on input : store his response & 
+			the machine get a random Choice*/
 			let userChoice = parseInt($(item).attr('id'));
 			let robotChoice = Math.floor(Math.random() * robotArr.length);
 
@@ -43,7 +44,9 @@
 		// COMPARISON ALGORITHM & STORAGE OF SCORES //
 /*equality*/	if (userChoice==robotChoice) {
 					$('h4').text('Egalité');
- /*winning*/	} else if ((userChoice==0 && robotChoice==2) || (userChoice==1 && robotChoice==0) || (userChoice==2 && robotChoice==1)) {
+ /*winning*/	} else if ((userChoice==0 && robotChoice==2)
+ 				 	   || (userChoice==1 && robotChoice==0) 
+ 				 	   || (userChoice==2 && robotChoice==1)) {
 					comparison('Gagné', 0);
 					showWinnerScore(0, localStorage.userVictories);
   /*defeat*/	} else {
